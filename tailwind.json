@@ -35,6 +35,11 @@
 			"display": "flex"
 		}
 	},
+	"contents": {
+		"style": {
+			"display": "contents"
+		}
+	},
 	"hidden": {
 		"style": {
 			"display": "none"

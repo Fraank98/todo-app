@@ -1,11 +1,8 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import { useTailwind } from "tailwind-rn";
+import { Todo } from "../types";
 
-type Todo = {
-  content: string;
-};
-
-export default function TodoCard({ content }: Todo) {
+export default function TodoCard({ id, content }: Todo) {
   const tw = useTailwind();
 
   return (

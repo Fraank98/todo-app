@@ -11,11 +11,13 @@
     "dev:tailwind": "concurrently \"tailwindcss --input input.css --output tailwind.css --no-autoprefixer --watch\" \"tailwind-rn --watch\""
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
     "expo": "~48.0.15",
     "expo-status-bar": "~1.4.4",
     "react": "18.2.0",
     "react-native": "0.71.7",
     "react-native-swipe-list-view": "^3.2.9",
+    "react-redux": "^8.0.5",
     "tailwind-rn": "^4.2.0"
   },
   "devDependencies": {

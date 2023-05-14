@@ -2,35 +2,18 @@ import { View, FlatList, Text } from "react-native";
 import TodoCard from "./TodoCard";
 import { useTailwind } from "tailwind-rn";
 import { SwipeListView } from "react-native-swipe-list-view";
-
-type Todo = {
-  id: number;
-  content: string;
-};
+import { useAppDispatch, useAppSelector } from "../redux-toolkit/hooks";
+import { deleteTodo } from "../redux-toolkit/todosSlice/todosSlice";
+import { useState } from "react";
+import { RootState } from "../redux-toolkit/store";
 
 export default function TodoView() {
   const tw = useTailwind();
 
-  const todos: Todo[] = [
-    { id: 1, content: "pranzare" },
-    { id: 2, content: "bere" },
-    { id: 3, content: "giocare" },
-    { id: 4, content: "mangiare" },
-    { id: 5, content: "accompagnare il cane" },
-    { id: 6, content: "pranzare" },
-    { id: 7, content: "pranzare" },
-    { id: 8, content: "bere" },
-    { id: 9, content: "giocare" },
-    { id: 10, content: "mangiare" },
-    { id: 11, content: "accompagnare il cane" },
-    { id: 12, content: "pranzare" },
-    { id: 13, content: "pranzare" },
-    { id: 14, content: "bere" },
-    { id: 15, content: "giocare" },
-    { id: 16, content: "mangiare" },
-    { id: 17, content: "accompagnare il cane" },
-    { id: 18, content: "pranzare" },
-  ];
+  const [todoKey, setTodoKey] = useState<number>(0);
+
+  const dispatch = useAppDispatch();
+  const todos = useAppSelector((state: RootState) => state.todosReducer.todos);
 
   function renderDeleteButton() {
     return (
@@ -39,7 +22,12 @@ export default function TodoView() {
           "bg-red-600 rounded-lg flex items-center justify-center absolute p-3 my-2 right-0 w-[20%]"
         )}
       >
-        <Text style={tw("text-white")}>Delete</Text>
+        <Text
+          onPress={() => dispatch(deleteTodo(todoKey))}
+          style={tw("text-white")}
+        >
+          Delete
+        </Text>
       </View>
     );
   }
@@ -48,9 +36,14 @@ export default function TodoView() {
     <View style={tw("w-full h-[80%] flex px-5 pt-2")}>
       <SwipeListView
         data={todos}
-        renderItem={({ item }) => <TodoCard content={item.content} />}
+        renderItem={({ item }) => (
+          <TodoCard id={item.id} content={item.content} />
+        )}
         disableRightSwipe
         renderHiddenItem={renderDeleteButton}
+        onSwipeValueChange={({ key }) => {
+          setTodoKey(+key);
+        }}
         rightOpenValue={-75}
         keyExtractor={(todo) => todo.id.toString()}
         showsVerticalScrollIndicator={false}
