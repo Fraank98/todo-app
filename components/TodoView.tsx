@@ -2,10 +2,10 @@ import { View, FlatList, Text } from "react-native";
 import TodoCard from "./TodoCard";
 import { useTailwind } from "tailwind-rn";
 import { SwipeListView } from "react-native-swipe-list-view";
-import { useAppDispatch, useAppSelector } from "../redux-toolkit/hooks";
-import { deleteTodo } from "../redux-toolkit/todosSlice/todosSlice";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import { deleteTodo } from "../redux/todosSlice/todosSlice";
 import { useState } from "react";
-import { RootState } from "../redux-toolkit/store";
+import { RootState } from "../redux/store";
 
 export default function TodoView() {
   const tw = useTailwind();

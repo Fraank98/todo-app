@@ -1,10 +1,10 @@
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import React from "react";
 import { useTailwind } from "tailwind-rn";
-import { useAppDispatch, useAppSelector } from "../redux-toolkit/hooks";
-import { setInputValue } from "../redux-toolkit/inputTodoSlice/inputTodoSlice";
-import { addTodo } from "../redux-toolkit/todosSlice/todosSlice";
-import { RootState } from "../redux-toolkit/store";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import { setInputValue } from "../redux/inputTodoSlice/inputTodoSlice";
+import { addTodo } from "../redux/todosSlice/todosSlice";
+import { RootState } from "../redux/store";
 
 export default function TodoInput() {
   const tw = useTailwind();

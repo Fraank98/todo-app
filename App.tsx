@@ -2,7 +2,7 @@ import { View } from "react-native";
 import { TailwindProvider } from "tailwind-rn";
 import utilities from "./tailwind.json";
 import HomeScreen from "./screens/HomeScreen";
-import { store } from "./redux-toolkit/store";
+import { store } from "./redux/store";
 import { Provider } from "react-redux";
 
 export default function App() {
