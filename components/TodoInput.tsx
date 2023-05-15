@@ -14,11 +14,6 @@ export default function TodoInput() {
 
   const dispatch = useAppDispatch();
 
-  const handleInputChange = (c: string) => {
-    console.log(c);
-    dispatch(setInputValue(c));
-  };
-
   const handleSubmit = () => {
     dispatch(addTodo({ content: inputValue, id: todos.length + 1 }));
     dispatch(setInputValue(""));
@@ -27,7 +22,7 @@ export default function TodoInput() {
   return (
     <View style={tw("w-full p-5 flex items-center justify-center")}>
       <TextInput
-        onChangeText={(c) => handleInputChange(c)}
+        onChangeText={(c) => dispatch(setInputValue(c))}
         onSubmitEditing={handleSubmit}
         style={tw(
           "w-[80%] border border-solid border-[#0085ff] text-white rounded-lg p-3"
