@@ -156,5 +156,15 @@
 			"--tw-text-opacity": 1,
 			"color": "rgb(255 255 255 / var(--tw-text-opacity))"
 		}
+	},
+	"line-through": {
+		"style": {
+			"textDecorationLine": "line-through"
+		}
+	},
+	"decoration-[red]": {
+		"style": {
+			"textDecorationColor": "red"
+		}
 	}
 }

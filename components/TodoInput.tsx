@@ -15,7 +15,9 @@ export default function TodoInput() {
   const dispatch = useAppDispatch();
 
   const handleSubmit = () => {
-    dispatch(addTodo({ content: inputValue, id: todos.length + 1 }));
+    dispatch(
+      addTodo({ content: inputValue, id: todos.length + 1, completed: false })
+    );
     dispatch(setInputValue(""));
   };
 

@@ -37,7 +37,11 @@ export default function TodoView() {
       <SwipeListView
         data={todos}
         renderItem={({ item }) => (
-          <TodoCard id={item.id} content={item.content} />
+          <TodoCard
+            id={item.id}
+            content={item.content}
+            completed={item.completed}
+          />
         )}
         disableRightSwipe
         renderHiddenItem={renderDeleteButton}
